@@ -1,386 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flick</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Flick - Great coffee good vibes</title>
+  <meta name="title" content="Flick - Great coffee good vibes">
+  <meta name="description" content="This is a coffee shop html template made by codewithsadee">
 
-    <style>
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
-        * {
-	 margin: 0;
-	 padding: 0;
-	 box-sizing: border-box;
-     overflow:hidden;
-}
- body {
-	 width: 100%;
-	 height: 100vh;
-	 display: flex;
-	 position: relative;
-	 background: #eeeeec;
-	 align-items: center;
-	 flex-direction: column;
-	 justify-content: center;
-	 font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-	 font-size: 100%;
-}
- .customSlider {
-	 opacity: 0.5;
-	 /* display: flex; */
-     background-color: #00FF00;
-     position: fixed;
-     top: 2%;
-}
- .customSlider + label {
-	 position: fixed;
-	 top: 1%;
-	 left: 0px;
-	 cursor: pointer;
-}
- .customSlider + label:before, .customSlider + label:after {
-	 background: #ff0000;
-	 position: fixed;
-	 content: '';
-}
- .customSlider + label:before {
-	 top: -90px;
-	 left: -60px;
-	 width: 80px;
-	 height: 40px;
-	 background: #ff0000;
-	 border-radius: 20px;
-	 transition: background 0.75s;
-}
- .customSlider + label:after {
-	 height: 34px;
-	 width: 34px;
-	 top: -87px;
-	 left: -55px;
-	 border-radius: 50%;
-	 transition: all 0.5s;
-}
- .customSlider:checked + label:after {
-	 height: 34px;
-	 width: 34px;
-	 top: -87px;
-	 left: -19px;
-	 border-radius: 50%;
-}
- .customSlider:checked ~ .wrapper {
-	 color: #fff;
-	 transition: background 0.6s ease;
-	 background: #000000;
-}
- .customSlider:checked ~ .wrapper .top-icons i {
-	 color: #fff;
-}
- .customSlider:checked ~ .wrapper .profile .name {
-	 color: #fdfeff;
-}
- .customSlider:checked ~ .wrapper .profile .title {
-	 color: #7c8097;
-}
- .customSlider:checked ~ .wrapper .profile .description {
-	 color: #fdfeff;
-}
- .customSlider:checked ~ .wrapper .icon h4 {
-	 color: #fff;
-}
- .customSlider:checked ~ .wrapper .icon p {
-	 color: #666b7d;
-}
- .wrapper {
-	 width: 320px;
-	 height: 90%;
-     overflow:scroll;
-	 background: #fdfeff;
-	 /* transition: background 0.6s ease; */
-	 border-radius: 20px;
-	 padding: 20px 20px 20px 20px;
-	 box-shadow: 0 8px 80px rgba(0, 0, 0, .2);
-     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-     
-}
-.wrapper::-webkit-scrollbar {
-  display: none;
-}
- .wrapper .top-icons i {
-	 color: #080911;
-}
- .wrapper .top-icons i:nth-of-type(1) {
-	 float: left;
-}
- .wrapper .top-icons i:nth-of-type(2) {
-	 float: right;
-}
- .wrapper .top-icons i:nth-of-type(3) {
-	 float: right;
-	 padding-right: 0.8em;
-}
- .wrapper .profile {
-	 margin-top: 1.8em;
-	 position: relative;
-}
- .wrapper .profile:after {
-	 width: 100%;
-	 height: 1px;
-	 content: ' ';
-	 display: block;
-	 margin-top: 1.3em;
-	 background: #e9eff6;
-}
- .wrapper .profile .check {
-	 position: absolute;
-	 right: 5em;
-	 bottom: 12.7em;
-}
- .wrapper .profile .check i {
-	 color: #fff;
-	 width: 20px;
-	 height: 20px;
-	 font-size: 12px;
-	 line-height: 20px;
-	 text-align: center;
-	 border-radius: 100%;
-	 background: linear-gradient(to bottom right, #c90a6d, #ff48a0);
-}
- .wrapper .profile .thumbnail {
-	 width: 124px;
-	 height: 124px;
-	 display: flex;
-	 margin-left: auto;
-	 margin-right: auto;
-	 margin-bottom: 1.5em;
-	 border-radius: 100%;
-	 box-shadow: 0 13px 26px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .2);
-}
- .wrapper .profile .name {
-	 color: #090b0e;
-	 font-size: 30px;
-	 font-weight: 800;
-	 text-align: center;
-}
- .wrapper .profile .title {
-	 color: #7c8097;
-	 font-size: 0.75em;
-	 font-weight: 500;
-	 text-align: center;
-	 padding-top: 0.5em;
-	 padding-bottom: 0.7em;
-	 letter-spacing: 1.5px;
-	 text-transform: uppercase;
-}
- .wrapper .profile .description {
-	 color: #080911;
-	 font-size: 15px;
-	 font-weight: 400;
-	 text-align: center;
-     letter-spacing: 1px;
-	 margin-bottom: 1.3em;
-}
- .wrapper .profile .btn {
-	 color: #fff;
-	 width: 130px;
-	 height: 42px;
-	 outline: none;
-	 border: none;
-	 display: block;
-	 cursor: pointer;
-	 font-weight: 300;
-	 margin-left: auto;
-	 margin-right: auto;
-	 border-radius: 70px;
-	 box-shadow: 0 13px 26px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .16);
-	 background: linear-gradient(to bottom right, #690e71, #8e64d0);
-}
- .wrapper .social-icons {
-	 display: flex;
-	 margin-top: 1.2em;
-	 justify-content: space-between;
-}
- .wrapper .social-icons .icon {
-	 display: flex;
-	 align-items: center;
-	 flex-direction: column;
-}
- .wrapper .social-icons .icon a {
-	 color: #fff;
-	 width: 60px;
-	 height: 60px;
-	 font-size: 28px;
-	 line-height: 60px;
-	 text-align: center;
-	 border-radius: 30px;
-     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-}
- .wrapper .social-icons .icon:nth-of-type(1) a {
-	 background: linear-gradient(to bottom right, #039fff, #77b7e5);
-   }
- .wrapper .social-icons .icon:nth-of-type(2) a {
-	 background: linear-gradient(to bottom right, #25D366, #00FF00);
-}
- .wrapper .social-icons .icon:nth-of-type(3) a {
-	 background: linear-gradient(to bottom right, #FF0000, #FF0000 );
-}
- .wrapper .social-icons .icon h4 {
-	 color: #080911;
-	 font-size: 1em;
-	 margin-top: 1.3em;
-	 margin-bottom: 0.2em;
-}
- .wrapper .social-icons .icon p {
-	 color: #666b7d;
-	 font-size: 12px;
-}
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merienda&family=Oswald:wght@300;400;500&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
-.seperator{
-    width: 100%;
-	 height: 1px;
-	 content: ' ';
-	 display: block;
-	 margin-top: 1.3em;
-	 background: #e9eff6;
-}
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
 
-.qrcode img{
-    width: 150px;
-    display: flex;
-	 margin-left: auto;
-	 margin-right: auto;
-     margin-top: 30px;
-    
-}
-.pay-logo{
-    background-color: white;
-    border-radius: 17px;
-}
-.pay-logo img{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top:3px;
-
-    
-}
- .concept {
-	 position: absolute;
-	 bottom: 1%;
-	 color: #414244;
-	 font-size: 0.9em;
-	 font-weight: 800;
-}
- .concept a {
-	 color: rgb(255, 0, 132);
-	 text-decoration: none;
-}
- 
-</style>
 </head>
+
 <body>
-    <!-- <input id="slider" class="customSlider" type="checkbox"> -->
-    
-    <input id="slider" class="customSlider" type="checkbox">
-    <label for="slider"></label> 
-    <div class="wrapper">
-        <div class="top-icons">
-            <!-- <i class="fas fa-long-arrow-alt-left"></i>
-                <i class="fas fa-ellipsis-v"></i>
-                <i class="far fa-heart"></i> -->
-            </div>
-            
-            <div class="profile">
-		<img src="./flick-transparent.png" class="thumbnail">
-		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
-		<h3 class="name">Flick</h3>
-		<p class="title">your brand our trust</p>
-		<p class="description">Premium Business cards with profile and Websites at lowest price ever !</p>
-		<button type="button" class="btn" >Services</button>
-	</div>
-	
-	<div class="social-icons">
-		<div class="icon">
-			<a href="tel:+919922776780"><i class="fa fa-solid fa-phone" style="-webkit-transform: scaleX(-1);
-                transform: scaleX(-1);"></i></a>
-			<h4>Call</h4>
-			<!-- <p>9922776780</p> -->
-		</div>
-		
-		<div class="icon">
-			<a href="https://wa.me/9922776780"><i class="fab fa-whatsapp"></i></a>
-			<h4>Chat</h4>
-			<!-- <p></p> -->
-		</div>
-		
-		<div class="icon">
-			<a href="https://instagram.com/flickcards?igshid=MzMyNGUyNmU2YQ==" style="background: #d6249f;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);"><i class="fab fa-instagram"></i></a>
-			<h4>Follow</h4>
-			<!-- <p>@ig_gogorgeous</p> -->
-		</div>
-	</div>
-	
-	<div class="social-icons">
-        <div class="icon">
-			<a href="#"><i class="fab fa-twitter"></i></a>
-			<h4>Tweet</h4>
-			<!-- <p>9922776780</p> -->
-		</div>
-		
-		<div class="icon" >
-			<a href="#" style="background: linear-gradient(to bottom right, #ffdd02, #ffee02);"><i class="fab fa-snapchat"></i></a>
-			<h4>Snap</h4>
-			<!-- <p></p> -->
-		</div>
-		
-		<div class="icon">
-			<a href="#" ><i class="fab fa-youtube"></i></a>
-			<h4>YTube</h4>
-			<!-- <p>@ig_gogorgeous</p> -->
-		</div>
-	</div>
-    <div class="seperator"></div>
 
-    <div class="qrcode">
-        <img src="./jayesh-qr.jpeg" alt="">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header">
+
+    <div class="header-top">
+      <div class="container">
+
+        <p class="header-top-text">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          <span class="span">Opening Hours :</span> 08:00 Am - 09:00 Pm
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <p class="header-top-text">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          <span class="span">Location :</span> 55 Main Street, New York
+        </p>
+
+      </div>
     </div>
 
-    <div class="profile">
-        
-        <div class="description"><h4>9922776780@paytm</h4></div>
-        <div class="pay-logo">
-            <img src="./paytm-logo.jpeg" alt="">
-            <img src="./phonepe-logo.jpeg" alt="">
-            <img src="./gpay-logo.jpeg" alt="">
+    <div class="header-bottom" data-header>
+      <div class="container">
+
+        <a href="#" class="logo">
+          <img src="./assets/images/coffee-logo.png" width="216" height="80" alt="flick home" class="w-100">
+        </a>
+
+        <nav class="navbar" data-navbar>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="navbar-link" data-nav-link>About</a>
+            </li>
+
+            <li>
+              <a href="#menu" class="navbar-link" data-nav-link>Menu</a>
+            </li>
+
+            <li>
+              <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-link" data-nav-link>Contacts</a>
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-primary">Book A Table</a>
+
+        </nav>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="span"></span>
+          <span class="span"></span>
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero has-bg-image" id="home" aria-labelledby="hero-label"
+        style="background-image: url('./assets/images/hero-banner.jpg')">
+        <div class="container">
+
+          <p class="section-subtitle has-before reveal-left" data-reveal>Welcome to the Flick</p>
+
+          <h1 class="h1 hero-title reveal-left" id="hero-label" data-reveal>Great Coffee Good Vibes</h1>
+
+          <div class="btn-group reveal-left" data-reveal>
+            <a href="#" class="btn btn-primary">
+              <span class="span">Explore more</span>
+
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+            </a>
+
+            <a href="#" class="btn btn-secondary">
+              <span class="span">Get delivery</span>
+
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
         </div>
-    </div>
+      </section>
 
-    <!-- flick logo  -->
-    <div class="qrcode">
-        <a href="https://instagram.com/flickcards?igshid=MzMyNGUyNmU2YQ==">
-        <img src="./flick-transparent.png" alt="" ></a>
-    </div>
-    <div class="profile">
-    <div class="description">
 
-        <h4>Want something like this !?</h4>
-        <h5>Click on the logo ! ! !</h5>
-    </div>
-</div>
-    <!-- <div class="seperator"></div> -->
-    <!-- wrapper div ends here  -->
-</div>
 
-<div class="concept">Designed by :  
-	<a href="#" target="_blank">
-		 F L I C K
-	</a>
-</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-labelledby="about-label">
+        <div class="container">
+
+          <div class="about-content">
+
+            <p class="section-subtitle reveal-left" id="about-label" data-reveal>About Us</p>
+
+            <h2 class="h2 section-title reveal-left" data-reveal>Organic & Fresh Coffee Provider Center</h2>
+
+            <p class="section-text reveal-left" data-reveal>
+              Sed ut perspiciatis unde omnis iste natus error voluptate accusantium doloremque laudantium, totam rem
+              aperiam eaque ipsa quae abillo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              Nemo enim ipsluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores
+              eos qui ratione
+            </p>
+
+            <div class="about-card reveal-left" data-reveal>
+              <figure class="card-banner img-holder" style="--width: 95; --height: 95;">
+                <img src="./assets/images/about-img.png" width="95" height="95" loading="lazy" alt="john doe"
+                  class="img-cover">
+              </figure>
+
+              <p class="card-text">
+                Quis autem vel eum iure reprehenderit in ealuptate velit esse molestiae
+              </p>
+            </div>
+
+          </div>
+
+          <figure class="about-banner reveal-right" data-reveal>
+            <img src="./assets/images/about-banner.png" width="686" height="544" loading="lazy" alt="about banner"
+              class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" aria-label="service">
+        <div class="container">
+
+          <ul class="grid-list">
+
+            <li>
+              <a href="#" class="service-card" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/service-1.jpg" width="450" height="350" loading="lazy" alt="Restaurant Menu"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content has-before">
+                  <ion-icon name="restaurant-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Restaurant Menu</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="service-card" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/service-2.jpg" width="450" height="350" loading="lazy" alt="Coffee Menu"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content has-before">
+                  <ion-icon name="cafe-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Coffee Menu</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="service-card" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/service-3.jpg" width="450" height="350" loading="lazy" alt="Food Services"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content has-before">
+                  <ion-icon name="wine-outline" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 card-title">Food Services</h3>
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #MENU
+      -->
+
+      <section class="section menu has-bg-image" id="menu" aria-labelledby="menu-label"
+        style="background-image: url('./assets/images/menu-bg.jpg')">
+        <div class="container">
+
+          <p class="section-subtitle text-center" data-reveal>Choose Best Coffee</p>
+
+          <h2 class="h2 section-title text-center" id="menu-label" data-reveal>
+            Kaffen Popular Coffee Menu
+          </h2>
+
+          <ul class="grid-list" style="background-image: url('./assets/images/menu-bg-logo.png')">
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-1.jpg" width="200" height="200" loading="lazy" alt="Americano Coffee"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Americano Coffee</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="4.9">$4.9</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-2.jpg" width="200" height="200" loading="lazy" alt="Espresso Coffee"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Espresso Coffee</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="4.9">$4.9</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-3.jpg" width="200" height="200" loading="lazy"
+                    alt="Barista Pouring Syrup" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Barista Pouring Syrup</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="3.5">$3.5</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-4.jpg" width="200" height="200" loading="lazy" alt="Cold - Coffee"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Cold - Coffee</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="6.0">$6.0</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-5.jpg" width="200" height="200" loading="lazy" alt="Cappuccino Arabica"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Cappuccino Arabica</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="2.8">$2.8</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card" data-reveal>
+
+                <figure class="card-banner img-holder" style="--width: 200; --height: 200;">
+                  <img src="./assets/images/menu-6.jpg" width="200" height="200" loading="lazy" alt="Milk Cream Coffee"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Milk Cream Coffee</h3>
+
+                  <p class="card-text">
+                    2/3 espresso, 1/3 streamed milk
+                  </p>
+
+                  <data class="card-price has-before" value="7.5">$7.5</data>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-labelledby="feature-label">
+        <div class="container">
+
+          <figure class="feature-banner img-holder reveal-left" style="--width: 560; --height: 700;" data-reveal>
+            <img src="./assets/images/feature-banner.jpg" width="560" height="700" loading="lazy" alt="feature banner"
+              class="img-cover">
+          </figure>
+
+          <div class="feature-content">
+
+            <p class="section-subtitle reveal-right" data-reveal>Why Choose Us</p>
+
+            <h2 class="h2 section-title reveal-right" id="feature-label" data-reveal>New London Coffee Founded For
+              Extraordinary Test
+            </h2>
+
+            <p class="section-text reveal-right" data-reveal>
+              Sed ut perspiciatis unde omnis iste natus error voluptate accusantium doloremque laudantium, totam rem
+              aperiam eaque ipsa quae abillo inventore veritatis
+            </p>
+
+            <ul class="feature-list">
+
+              <li>
+                <div class="feature-card reveal-right" data-reveal>
+
+                  <div class="card-icon">
+                    <img src="./assets/images/feature-icon-1.png" width="70" height="70" loading="lazy"
+                      alt="feature icon">
+                  </div>
+
+                  <div>
+                    <h3 class="h3 card-title">Natural Coffee Beans</h3>
+
+                    <p class="card-text">
+                      Sed ut perspiciatis unde omnis iste natus error voluptate accusantium doloremque
+                    </p>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card reveal-right" data-reveal>
+
+                  <div class="card-icon">
+                    <img src="./assets/images/feature-icon-2.png" width="70" height="70" loading="lazy"
+                      alt="feature icon">
+                  </div>
+
+                  <div>
+                    <h3 class="h3 card-title">100% ISO Certification</h3>
+
+                    <p class="card-text">
+                      Sed ut perspiciatis unde omnis iste natus error voluptate accusantium doloremque
+                    </p>
+                  </div>
+
+                </div>
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn btn-primary reveal-right" data-reveal>
+              <span class="span">Explore More</span>
+
+              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+          <img src="./assets/images/feature-abs-1.png" width="318" height="290" loading="lazy" alt=""
+            class="abs-img abs-img-1">
+
+          <img src="./assets/images/feature-abs-2.png" width="262" height="356" loading="lazy" alt=""
+            class="abs-img abs-img-2">
+
+          <img src="./assets/images/feature-abs-3.png" width="410" height="212" loading="lazy" alt=""
+            class="abs-img abs-img-3">
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog" aria-labelledby="blog-label">
+        <div class="container">
+
+          <p class="section-subtitle text-center" data-reveal>Get Every Single Update</p>
+
+          <h2 class="h2 section-title text-center" id="blog-label" data-reveal>
+            Read Some Latest Blog & News
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <a href="#" class="blog-card has-before" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/blog-1.jpg" width="670" height="450" loading="lazy"
+                    alt="SWR React Hooks With Next Increm Ental Static Regeneration" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">SWR React Hooks With Next Increm Ental Static Regeneration</h3>
+
+                  <div class="card-meta">
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                      <time class="card-meta-text" datetime="2022-09-25">25 Sep 2022</time>
+                    </div>
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
+
+                      <p class="card-meta-text">Comments (7)</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="blog-card has-before" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/blog-2.jpg" width="670" height="450" loading="lazy"
+                    alt="Decisions For Building Flexible Components DevTools Browser" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Decisions For Building Flexible Components DevTools Browser</h3>
+
+                  <div class="card-meta">
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                      <time class="card-meta-text" datetime="2022-09-25">25 Sep 2022</time>
+                    </div>
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
+
+                      <p class="card-meta-text">Comments (7)</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="blog-card has-before" data-reveal>
+
+                <figure class="card-banner">
+                  <img src="./assets/images/blog-3.jpg" width="670" height="450" loading="lazy"
+                    alt="SWR React Hooks With Next Increm Ental Static Regeneration" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">SWR React Hooks With Next Increm Ental Static Regeneration</h3>
+
+                  <div class="card-meta">
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+
+                      <time class="card-meta-text" datetime="2022-09-25">25 Sep 2022</time>
+                    </div>
+
+                    <div class="meta-wrapper">
+                      <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
+
+                      <p class="card-meta-text">Comments (7)</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-primary" data-reveal>
+            <span class="span">View All</span>
+
+            <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+          </a>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="section cta has-bg-image" aria-labelledby="cta-label"
+        style="background-image: url('./assets/images/cta-bg.jpg')">
+        <div class="container">
+
+          <div>
+            <p class="section-subtitle reveal-left" data-reveal>Need A Table On Coffee House</p>
+
+            <h2 class="h2 section-title reveal-left" id="cta-label" data-reveal>Booking Table For Your & Family Members
+            </h2>
+          </div>
+
+          <a href="#" class="btn btn-primary reveal-right" data-reveal>
+            <span class="span">Booking Table</span>
+
+            <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+          </a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top section" data-reveal>
+
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/coffee-logo.png" width="216" height="80" class="w-100" alt="Flick home">
+          </a>
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Working Hours</p>
+          </li>
+
+          <li class="footer-list-item">
+            <p>Sunday - Thursday</p>
+
+            <span class="span">08:00 am - 09:00pm</span>
+          </li>
+
+          <li class="footer-list-item">
+            <p>Only Friday</p>
+
+            <span class="span">03:00 pm - 09:00pm</span>
+          </li>
+
+          <li>
+            <strong class="strong">Saturday Close</strong>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Us</p>
+          </li>
+
+          <li>
+            <div class="wrapper">
+              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+              <div>
+                <span class="span">Location :</span>
+
+                <p>55 Main Street, New York</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="wrapper">
+              <ion-icon name="mail-unread-outline" aria-hidden="true"></ion-icon>
+
+              <div>
+                <span class="span">Email Address :</span>
+
+                <p>flickwork28@gmail.com</p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="wrapper">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+              <div>
+                <span class="span">Phone Number :</span>
+
+                <p>+91 9922776780</p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Gallery</p>
+          </li>
+
+          <li>
+            <ul class="grid-list">
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-1.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-2.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-3.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-4.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-5.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+              <li>
+                <div class="grid-item">
+                  <img src="./assets/images/gallery-1.jpg" width="80" height="80" loading="lazy" alt="Gallery"
+                    class="w-100">
+                </div>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p class="copyright">
+          Copyright © 2024 F L I C K. All Rights Reserved.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
